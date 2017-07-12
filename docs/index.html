@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script>
+            function getLocation() {
+                if (navigator.geolocation) {
+                    alert( "Geolocation is supported." ) ;
+                    navigator.geolocation.getCurrentPosition( successFunc , errorFunc , optionObj) ;
+                } else {
+                    alert("Geolocation is not supported.");
+                }
+            }
+
+function successFunc( position )
+{
+    alert("Latitude: " + position.coords.latitude +
+          "<br>Longitude: " + position.coords.longitude);
+}
+
+function errorFunc( error )
+{
+    // エラーコードのメッセージを定義
+    var errorMessage = {
+        0: "0 原因不明のエラーが発生しました…。" ,
+        1: "1 位置情報の取得が許可されませんでした…。" ,
+        2: "2 電波状況などで位置情報が取得できませんでした…。" ,
+        3: "3 位置情報の取得に時間がかかり過ぎてタイムアウトしました…。" ,
+    } ;
+
+    // エラーコードに合わせたエラー内容をアラート表示
+    alert( errorMessage[error.code] ) ;
+}
+
+var optionObj = {
+    "enableHighAccuracy": false ,
+    "timeout": 8000 ,
+    "maximumAge": 5000 ,
+} ;
+
+        </script>
+    </head>
+    <body>
+        <BR><BR><BR><BR>
+        <button onclick="getLocation()">get Location</button>
+
+    </body>
+</html>
