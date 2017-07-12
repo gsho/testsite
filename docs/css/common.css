@@ -1,0 +1,643 @@
+@charset "UTF-8";
+@import "mapion.css";
+
+/*基本設定
+------------------------------------------*/
+/*
+body,div,pre,p,ul,li,h1,h2,h3,h4,h5,h6,dl,dt,dd,blockquote,form,fieldset,input,textarea,select,option,table,th,td,menu {
+margin:0;
+padding:0;
+font-size:100%;
+}
+body {
+background:#FFFFFF;
+-webkit-text-size-adjust:100%;
+font-family:helvetica,arial,sans-serif;
+}
+a{color:#0033cc;text-decoration:none;}
+*/
+
+img {margin:0;padding:0;border:none;}
+ul,menu {margin:0;padding:0;list-style:none outside;}
+ol {margin:0;padding:0;list-style:decimal outside;}
+
+/*clearfix*/
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{display:inline-table;min-height:1em;}
+/*\*/
+* html .clearfix{height:1%;}
+.clearfix{display:block;}
+
+/* フッター戻るボタン
+------------------------------------------*/
+ul.footer-navi{
+	margin:0 5px 20px;
+}
+
+ul.footer-navi li {
+	float:left;
+	width:50%;
+}
+
+ul.footer-navi li a{
+	display:block;
+	margin:0 5px;
+	color: #333;
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#DEDEDE));
+	padding: 6px 0 7px;
+	border: 1px solid #C1C1C1;
+	-webkit-border-radius: 3px;
+	text-shadow: rgba(0, 0, 0, 0.3) 0 1px 1px;
+	text-decoration: none;
+	font-size: 70%;
+	text-align:center;
+}
+
+/*ページ共通
+------------------------------------------*/
+.bold {font-weight:bold;}
+.baseHeader1 {
+	background:-webkit-gradient(linear, left top, left bottom, from(#707070), to(#444444));
+	background:-moz-linear-gradient(to bottom,#707070, #444444);
+	color: #FFFFFF;
+	padding: 3px 10px;
+	border-bottom: solid 1px #333333;
+}
+.baseHeader2 {
+	border-top: solid 1px #FFFFFF;
+	background:-webkit-gradient(linear, left top, left bottom, from(#E0E0E0), to(#BBBBBB));
+	background:-moz-linear-gradient(to bottom,#E0E0E0, #BBBBBB);
+	padding: 3px 10px;
+	border-bottom: solid 1px #999999;
+}
+.baseHeader3 {
+	border-top: solid 1px #DDDDDD;
+	color: #FFFFFF;
+	background:-webkit-gradient(linear, left top, left bottom, from(#AAAAAA), to(#888888));
+	background:-moz-linear-gradient(to bottom, #AAAAAA, #888888);
+	padding: 3px 10px;
+	border-bottom: solid 1px #CCCCCC;
+}
+
+/* リスト */
+.resultList {
+margin:0 -10px;
+border-bottom:1px solid #DDDDDD;
+}
+.resultList li {
+border-top:1px solid #DDDDDD;
+border-bottom:1px solid #FFFFFF;
+margin:0;
+width:100%;
+text-decoration:none;
+background-color:#FAFAFA;
+
+position: relative;
+-webkit-box-sizing: border-box;
+}
+.resultList li:first-child {
+border-top:1px solid #DDDDDD;
+}
+
+.resultList a {
+color:#000000;
+display:block;
+padding:10px 25px 10px 10px;
+text-decoration:none;
+}
+.resultList a .sub {
+	display: block;
+	margin-top: 5px;
+	font-size: 80%;
+	color: #666666;
+	line-height: 1.2;
+}
+.resultList a:after {
+content: "";
+position: absolute;
+right: 15px;
+top: 50%;
+display: block;
+width: 6px;
+height: 6px;
+margin-top: -3px;
+border-top: solid 2px #999999;
+border-right: solid 2px #999999;
+-webkit-transform: rotate(45deg);
+}
+
+/* 続き */
+#nextbtn {display:none;width:95%;margin:5px auto;}
+#nextButton {
+display:block;
+text-align:center;
+padding:3px;
+text-align:center;
+background:-webkit-gradient(linear, left top, left bottom, from(#21b4ce), to(#3195DE));
+color:#FFFFFF;
+border:solid 1px #1c7eb4;
+text-decoration:none;
+text-shadow:1px 2px 3px #C45C00;
+-webkit-appearance:none;
+-webkit-border-radius:5px;
+-webkit-box-shadow:0 2px 2px #CCCCCC;
+}
+/* 検索中 */
+#searchLoading1 {display:none;text-align:center;padding:5px;}
+#searchLoading2 {display:none;text-align:center;padding:5px;}
+
+/* ヒット0件 */
+#resultZero {padding:10px;display:none;}
+#msg {text-align:center;font-size:large;}
+/* 検索用フォーム */
+.searchForm {
+display:block;
+width:95%;
+height:40px;
+margin: 10px auto;
+}
+select.searchForm{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	-webkit-border-radius:0;
+	border:solid 1px #999;
+	padding: 0 25px 0 5px;
+	background: url(https://map.yamagatabank.co.jp/f/yamagatabank_s/img/close_select.png) 98% center no-repeat;
+	background-size: 15px 9px;
+	font-size: inherit;
+}
+input.searchForm {
+	-webkit-border-radius:4px;
+	border: solid 1px #999;
+}
+
+dl.MapiTimeSelect{
+	margin:10px;
+}
+
+dl.MapiTimeSelect dt{
+	float:left;
+	line-height:35px;
+	width:30%;
+	margin:0;
+}
+
+dl.MapiTimeSelect dd{
+	float:left;
+	width:70%;
+	margin:0;
+}
+
+dl.MapiTimeSelect select{
+	display: block;
+	float: left;
+	width: 66%;
+	margin: 0 auto;
+}
+
+dl.MapiTimeSelect .button-search{
+	float:left;
+	width:30%;
+	min-width:0 !important;
+	margin: 0 0 0 8px;
+}
+
+/* 検索 */
+.button_link_full {
+display:block;
+text-align:center;
+font-size:100%;
+width:90%;
+margin:10px auto;
+padding:6px 0;
+background:-webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#F0F0F0));
+color:#292929;
+border:solid 1px #CCCCCC;
+text-decoration:none;
+text-shadow:1px 1px 1px #FFFFFF;
+-webkit-appearance:none;
+-webkit-border-radius:2px;
+-webkit-box-shadow:0 1px 1px #CCCCCC;
+}
+/* 検索結果 */
+#hitResult {
+	border-top: solid 1px #FFFFFF;
+	text-align: center;
+	margin:0 -10px;
+	padding: 10px 0;
+	/*display: none;*/
+	background-color: #FAFAFA;
+	font-size: 80%;
+	font-weight: bold;
+}
+/* 再検索・地図で探すリンク */
+#shiboriBlk{
+	margin:0 -10px;
+	border-top: solid 1px #FFFFFF;
+	border-bottom: solid 1px #DDDDDD;
+	background-color: #FAFAFA;
+}
+.mapLink {
+	background-image: url('https://map.yamagatabank.co.jp/f/yamagatabank_s/img/search_map.png');
+	background-repeat: no-repeat;
+	background-size: 26px 26px;
+	-webkit-background-size: 26px 26px;
+	-moz-background-size: 26px 26px;
+	background-position: 7px center;
+}
+.searchRetry {
+	background-image: url('https://map.yamagatabank.co.jp/f/yamagatabank_s/img/return.png');
+	background-repeat: no-repeat;
+	background-size: 26px 26px;
+	-webkit-background-size: 26px 26px;
+	-moz-background-size: 26px 26px;
+	background-position: 7px center;
+}
+#shiboriBlk a {
+	text-decoration: none;
+	font-weight: bold;
+	display: block;
+	padding: 10px 10px 10px 40px;
+	position: relative;
+}
+#shiboriBlk a:after {
+	content: "";
+	position: absolute;
+	display: block;
+	top: 50%;
+	right: 15px;
+	width: 6px;
+	height: 6px;
+	margin-top: -3px;
+	-webkit-transform: rotate(45deg);
+}
+
+/*#searchResultList {display:none;}*/
+.resultCont {
+line-height:170%;
+padding-left:15px;
+font-size:small;
+}
+
+/* 絞り込みリンク */
+.refine_link {
+	border-top: solid 1px #ddd;
+	background-image: url("https://map.yamagatabank.co.jp/f/yamagatabank_s/img/menu_map.png");
+	background-position: 7px center;
+	background-repeat: no-repeat;
+	background-size: 26px 26px;
+}
+
+/* 駅検索 注意文言 */
+.station_comment {
+	margin:0 -10px;
+	text-align:right;
+	font-size:x-small;
+	background-color:#EEEEEE;
+	border-top: 1px solid #DDDDDD;
+	padding:5px;
+}
+
+/* リンク無効化 */
+.linkBorderNone {
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+
+/*検索結果ページ関連
+------------------------------------------*/
+
+/* NotFound */
+#notFoundMsg {
+	margin: 40px 10px;
+}
+#notFoundMsgCenter{
+	text-align: center;
+	margin: 40px 10px;
+}
+
+ul#progress {
+	list-style:none;
+	width:125px;
+	margin:0 auto;
+	padding-top:50px;
+	padding-bottom:50px;
+	display:none;
+	position:absolute;
+	top:200px;
+	left:200px;
+}
+
+ul#progress li { /* Style your list */
+	float:left;
+	position:relative;
+	width:15px;
+	height:15px;
+	border:1px solid #fff;
+	border-radius:50px;
+	margin-left:10px;
+	border-left:1px solid #111; border-top:1px solid #111; border-right:1px solid #333; border-bottom:1px solid #333;
+	background:#000;
+}
+
+ul#progress li:first-child { margin-left:0; } /* Remove the margin first li element */
+
+.ball { /* Style your ball and set the animation */
+	background-color:#2187e7;
+	background-image: -moz-linear-gradient(90deg, #2187e7 25%, #a0eaff);
+	background-image: -webkit-linear-gradient(90deg, #2187e7 25%, #a0eaff);
+
+	width:15px;
+	height:15px;
+	border-radius:50px;
+	-moz-transform:scale(0);
+	-webkit-transform:scale(0);
+
+	-moz-animation:loading 1s linear forwards;
+	-webkit-animation:loading 1s linear forwards;
+}
+
+.pulse { /* Style your second ball to create the amazing effects */
+	width:15px;
+	height:15px;
+	border-radius:30px;
+	border: 1px solid #00c6ff;
+	box-shadow: 0 0 5px #00c6ff;
+	position:absolute;
+	top:-1px;
+	left:-1px;
+	-moz-transform:scale(0);
+	-webkit-transform:scale(0);
+
+	-webkit-animation:pulse 1s ease-out;
+	-moz-animation:pulse 1s ease-out;
+}
+
+/* Control Layers */
+#layer1 { -moz-animation-delay:0.5s; -webkit-animation-delay:0.5s; }
+#layer2 { -moz-animation-delay:1s; -webkit-animation-delay:1s; }
+#layer3 { -moz-animation-delay:1.5s; -webkit-animation-delay:1.5s; }
+#layer4 { -moz-animation-delay:2s; -webkit-animation-delay:2s; }
+#layer5 { -moz-animation-delay:2.5s; -webkit-animation-delay:2.5s; }
+
+#layer7 { -moz-animation-delay:1.5s; -webkit-animation-delay:1.5s; }
+#layer8 { -moz-animation-delay:2s; -webkit-animation-delay:2s; }
+#layer9 { -moz-animation-delay:2.5s; -webkit-animation-delay:2.5s; }
+#layer10 { -moz-animation-delay:3s; -webkit-animation-delay:3s; }
+#layer11 { -moz-animation-delay:3.5s; -webkit-animation-delay:3.5s; }
+
+@-moz-keyframes loading {
+    0%{-moz-transform:scale(0,0);}
+    100%{-moz-transform:scale(1,1);}
+}
+
+@-webkit-keyframes loading {
+    0%{-webkit-transform:scale(0,0);}
+    100%{-webkit-transform:scale(1,1);}
+}
+
+@-moz-keyframes pulse {
+    0%   {-moz-transform: scale(0);opacity: 0;}
+    10%  {-moz-transform: scale(1);opacity: 0.5;}
+    50%  {-moz-transform: scale(1.75);opacity: 0;}
+    100% {-moz-transform: scale(0);opacity: 0;}
+}
+
+@-webkit-keyframes pulse {
+    0%   {-webkit-transform: scale(0);opacity: 0;}
+    10%  {-webkit-transform: scale(1);opacity: 0.5;}
+    50%  {-webkit-transform: scale(1.75);opacity: 0;}
+    100% {-webkit-transform: scale(0);opacity: 0;}
+}
+
+
+/*検索結果ページ ページネーション
+------------------------------------------*/
+.pageNation {
+	margin:0 -10px;
+	background-color: #EEEEEE;
+}
+.pnTop, .pnBottom {
+	/*display: none;*/
+}
+.pnTop{
+	border-top: solid 1px #DDDDDD;
+}
+.pnBottom {
+	border-bottom: solid 1px #DDDDDD;
+}
+.pageNation .linkUL {
+	list-style: none;
+	display: -moz-box;
+	display: -webkit-box;
+}
+.pageNation .linkUL .prev,
+.pageNation .linkUL .next {
+	width: 50%;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	text-align: center;
+}
+.pageNation .linkUL .prev {
+	border-right: solid 1px #CCCCCC;
+}
+.pageNation .linkUL .next {
+	border-left: solid 1px #FFFFFF;
+}
+.pageNation a {
+	text-decoration: none;
+	color: #333333;
+	font-weight: bold;
+	font-size: 80%;
+	display: block;
+	border-top: solid 1px #FFFFFF;
+	padding: 10px 0;
+}
+.pageNation {
+	position: relative;
+}
+.pageNation .prevLink:after,
+.pageNation .nextLink:after {
+	content: "";
+	position: absolute;
+	display: block;
+	top: 50%;
+	width: 6px;
+	height: 6px;
+	margin-top: -3px;
+	border-top: solid 3px #666;
+	border-right: solid 3px #666;
+}
+.pageNation .nextLink:after {
+	right: 15px;
+	-webkit-transform: rotate(45deg);
+}
+.pageNation .prevLink:after {
+	left: 15px;
+	-webkit-transform: rotate(225deg);
+}
+
+
+/*LOADING
+------------------------------------------*/
+#floatingBarsG {
+	position: relative;
+	width: 30px;
+	height: 37px;
+	margin: 30px auto;
+}
+
+.blockG {
+	position:absolute;
+	background-color:#FFFFFF;
+	width:5px;
+	height:12px;
+	-moz-border-radius:4px 4px 0 0;
+	-webkit-border-radius:4px 4px 0 0;
+	-webkit-transform:scale(0.4);
+	-webkit-animation-name:fadeG;
+	-webkit-animation-duration:0.96s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-direction:linear;
+	-moz-transform:scale(0.4);
+	-moz-animation-name:fadeG;
+	-moz-animation-duration:0.96s;
+	-moz-animation-iteration-count:infinite;
+	-moz-animation-direction:linear;
+	border-radius:4px 4px 0 0;
+	-o-transform:scale(0.4);
+	-o-animation-name:fadeG;
+	-o-animation-duration:0.96s;
+	-o-animation-iteration-count:infinite;
+	-o-animation-direction:linear;
+	-ms-transform:scale(0.4);
+	-ms-animation-name:fadeG;
+	-ms-animation-duration:0.96s;
+	-ms-animation-iteration-count:infinite;
+	-ms-animation-direction:linear;
+}
+
+#rotateG_01 {
+	left:0;
+	top:13px;
+	-webkit-animation-delay:0.36s;
+	-webkit-transform:rotate(-90deg);
+	-moz-animation-delay:0.36s;
+	-moz-transform:rotate(-90deg);
+	-o-animation-delay:0.36s;
+	-o-transform:rotate(-90deg);
+	-ms-animation-delay:0.36s;
+	-ms-transform:rotate(-90deg);
+}
+
+#rotateG_02 {
+	left:4px;
+	top:5px;
+	-webkit-animation-delay:0.48s;
+	-webkit-transform:rotate(-45deg);
+	-moz-animation-delay:0.48s;
+	-moz-transform:rotate(-45deg);
+	-o-animation-delay:0.48s;
+	-o-transform:rotate(-45deg);
+	-ms-animation-delay:0.48s;
+	-ms-transform:rotate(-45deg);
+}
+
+#rotateG_03 {
+	left:13px;
+	top:1px;
+	-webkit-animation-delay:0.6s;
+	-webkit-transform:rotate(0deg);
+	-moz-animation-delay:0.6s;
+	-moz-transform:rotate(0deg);
+	-o-animation-delay:0.6s;
+	-o-transform:rotate(0deg);
+	-ms-animation-delay:0.6s;
+	-ms-transform:rotate(0deg);
+}
+
+#rotateG_04 {
+	right:4px;
+	top:5px;
+	-webkit-animation-delay:0.72s;
+	-webkit-transform:rotate(45deg);
+	-moz-animation-delay:0.72s;
+	-moz-transform:rotate(45deg);
+	-o-animation-delay:0.72s;
+	-o-transform:rotate(45deg);
+	-ms-animation-delay:0.72s;
+	-ms-transform:rotate(45deg);
+}
+
+#rotateG_05 {
+	right:0;
+	top:13px;
+	-webkit-animation-delay:0.8400000000000001s;
+	-webkit-transform:rotate(90deg);
+	-moz-animation-delay:0.8400000000000001s;
+	-moz-transform:rotate(90deg);
+	-o-animation-delay:0.8400000000000001s;
+	-o-transform:rotate(90deg);
+	-ms-animation-delay:0.8400000000000001s;
+	-ms-transform:rotate(90deg);
+}
+
+#rotateG_06 {
+	right:4px;
+	bottom:3px;
+	-webkit-animation-delay:0.96s;
+	-webkit-transform:rotate(135deg);
+	-moz-animation-delay:0.96s;
+	-moz-transform:rotate(135deg);
+	-o-animation-delay:0.96s;
+	-o-transform:rotate(135deg);
+	-ms-animation-delay:0.96s;
+	-ms-transform:rotate(135deg);
+}
+
+#rotateG_07 {
+	bottom:0;
+	left:13px;
+	-webkit-animation-delay:1.0799999999999998s;
+	-webkit-transform:rotate(180deg);
+	-moz-animation-delay:1.0799999999999998s;
+	-moz-transform:rotate(180deg);
+	-o-animation-delay:1.0799999999999998s;
+	-o-transform:rotate(180deg);
+	-ms-animation-delay:1.0799999999999998s;
+	-ms-transform:rotate(180deg);
+}
+
+#rotateG_08 {
+	left:4px;
+	bottom:3px;
+	-webkit-animation-delay:1.2s;
+	-webkit-transform:rotate(-135deg);
+	-moz-animation-delay:1.2s;
+	-moz-transform:rotate(-135deg);
+	-o-animation-delay:1.2s;
+	-o-transform:rotate(-135deg);
+	-ms-animation-delay:1.2s;
+	-ms-transform:rotate(-135deg);
+}
+
+@-webkit-keyframes fadeG{
+	0%{ background-color:#000000 }
+	100%{ background-color:#FFFFFF }
+}
+
+@-moz-keyframes fadeG{
+	0% { background-color:#000000 }
+	100%{ background-color:#FFFFFF }
+}
+
+@-o-keyframes fadeG{
+	0%{ background-color:#000000 }
+	100%{ background-color:#FFFFFF }
+}
+
+@-ms-keyframes fadeG{
+	0%{ background-color:#000000 }
+	100%{ background-color:#FFFFFF }
+}
