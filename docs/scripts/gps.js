@@ -31,16 +31,15 @@ var successCallBack = function(position){
 	if(position.coords.accuracy < spConfig.m_geoAccuracy){
 		var current_position = Adapter.getInstance().w2t(position.coords.longitude, position.coords.latitude);
 
-		var baseUrl = "https://map.yamagatabank.co.jp/"
 		if(cb_type == 'kokoiku' && m_poi_code != ''){
 			// ココ行く
-			document.location = baseUrl + '/b/' + spConfig.m_layer + '/info/' + m_poi_code + '/?t=kokoiku_route&nl=' + current_position.y + '&el=' + current_position.x + spConfig.m_extends_param_spMap_and + '&uc_type=pp';
+			document.location = '/b/' + spConfig.m_layer + '/info/' + m_poi_code + '/?t=kokoiku_route&nl=' + current_position.y + '&el=' + current_position.x + spConfig.m_extends_param_spMap_and + '&uc_type=pp';
 		}else if(cb_type == 'map'){
 			// 地図
-			document.location = baseUrl + '/m/' + spConfig.m_layer + '/' + current_position.y + '_' + current_position.x + '_' + spConfig.m_default_scl + '/' + spConfig.m_extends_param_spMap;
+			document.location = '/m/' + spConfig.m_layer + '/' + current_position.y + '_' + current_position.x + '_' + spConfig.m_default_scl + '/' + spConfig.m_extends_param_spMap;
 		}else if(cb_type == 'circle'){
 			// 周辺検索
-			document.location = baseUrl + '/b/' + spConfig.m_layer + '/circle/?nl=' + current_position.y + '&el=' + current_position.x + spConfig.m_extends_param_spMap_and + '&geo=1';
+			document.location = '/b/' + spConfig.m_layer + '/circle/?nl=' + current_position.y + '&el=' + current_position.x + spConfig.m_extends_param_spMap_and + '&geo=1';
 		}
 	}else{
 		retry++;
